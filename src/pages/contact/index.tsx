@@ -4,7 +4,7 @@ import React from "react";
 const index = () => {
   return (
     <Layout>
-      <div>Projects</div>
+      <div>Contact</div>
     </Layout>
   );
 };

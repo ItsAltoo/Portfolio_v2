@@ -1,5 +1,5 @@
 "use client";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, Variants } from "motion/react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -10,7 +10,7 @@ import {
   mobileMenuVariants,
   navLinksContainerVariants,
   underlineVariants,
-} from "@/components/anim/navAnim";
+} from "@/components/navbar/navAnim";
 import styles from "./style.module.scss";
 
 const Navbar = () => {
@@ -24,7 +24,7 @@ const Navbar = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const animate = (variants: any) => ({
+  const animate = (variants: Variants) => ({
     initial: "initial",
     animate: animationStarted ? "enter" : "initial",
     exit: "exit",

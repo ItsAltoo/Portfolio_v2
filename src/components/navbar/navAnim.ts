@@ -37,13 +37,6 @@ export const navLinkItemVariants: Variants = {
     opacity: 1,
     transition: { ease: "easeOut" },
   },
-  exit: {
-    y: -20,
-    opacity: 0,
-    transition: {
-      ease: "easeIn",
-    },
-  },
 };
 
 export const underlineVariants: Variants = {
@@ -65,8 +58,8 @@ export const mobileMenuVariants: Variants = {
   },
   exit: {
     opacity: 0,
-    y: -10,
+    y: -30,
     height: 0,
-    transition: { duration: 0.5, ease: "easeIn" },
+    transition: { duration: 0.2, ease: "easeOut" },
   },
 };

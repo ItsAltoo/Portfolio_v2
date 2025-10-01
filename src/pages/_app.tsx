@@ -2,12 +2,12 @@ import "@/styles/globals.css";
 import "@/styles/style.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { Inter_Tight } from "next/font/google";
-import Layout from "@/components/layout";
+import { AnimatePresence } from "motion/react";
+import { useRouter } from "next/router";
+import localFont from "next/font/local";
 
-const inter = Inter_Tight({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
+const letterOfLearners = localFont({
+  src: "../../public/fonts/Letters for Learners.ttf",
 });
 
 export const metadata = {
@@ -19,6 +19,8 @@ export const metadata = {
 };
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -26,9 +28,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content={metadata.description} />
         <link rel="icon" href={metadata.icons.icon} />
       </Head>
-      <Layout className={inter.className}>
-        <Component {...pageProps} />
-      </Layout>
+      <div className={letterOfLearners.className}>
+        <AnimatePresence mode="wait">
+          <Component {...pageProps} key={router.route} />
+        </AnimatePresence>
+      </div>
     </>
   );
 }

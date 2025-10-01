@@ -1,14 +1,18 @@
-import Layout from "@/components/layout";
+import Layout from "@/components/layout/Layout";
+import styles from "./style.module.scss";
+import AnimatedWords from "@/components/anim/AnimateWords/AnimateWords";
 
 export default function Home() {
   return (
-    <>
+    <Layout>
       <div className="h-screen">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-        perspiciatis assumenda quis maiores mollitia, odio commodi voluptatum
-        corporis. Placeat quisquam iusto nemo quasi ullam unde quis sint sit
-        repellat praesentium?
+        <AnimatedWords
+          className={styles.textAnim}
+          text="Hello, I'm Matheus, a passionate front-end developer."
+          />
+        
       </div>
-    </>
+      <div className="h-screen"></div>
+    </Layout>
   );
 }

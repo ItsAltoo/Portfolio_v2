@@ -1,3 +1,25 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+
+  .profileImage {
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    background-position: bottom;
+    filter: brightness(0.8);
+    margin: 12px;
+  }
+}
+
 .textAnim {
-    
+  font-size: 55px;
+}
+.textProfession {
+  display: flex;
+
+  .textAnim:nth-child(2) {
+    color: var(--color-primary);
+  }
 }

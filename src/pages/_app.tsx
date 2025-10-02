@@ -1,13 +1,17 @@
+"use client";
 import "@/styles/globals.css";
 import "@/styles/style.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { AnimatePresence } from "motion/react";
 import { useRouter } from "next/router";
-import localFont from "next/font/local";
+import { Poppins } from "next/font/google";
+import Lenis from "lenis";
+import { useEffect } from "react";
 
-const letterOfLearners = localFont({
-  src: "../../public/fonts/Letters for Learners.ttf",
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -20,6 +24,15 @@ export const metadata = {
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }, []);
 
   return (
     <>
@@ -28,7 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content={metadata.description} />
         <link rel="icon" href={metadata.icons.icon} />
       </Head>
-      <div className={letterOfLearners.className}>
+      <div className={poppins.className}>
         <AnimatePresence mode="wait">
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>

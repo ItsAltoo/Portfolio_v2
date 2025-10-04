@@ -1,5 +1,7 @@
 import { motion, Variants } from "motion/react";
 import React from "react";
+import styles from "./style.module.scss";
+import { revealAnimate } from "./anim";
 
 interface AnimateImageProps {
   src: string;
@@ -8,43 +10,18 @@ interface AnimateImageProps {
 }
 
 const AnimateImage = ({ src, alt, className }: AnimateImageProps) => {
+
   const anim = (variants: Variants) => ({
     initial: "hidden",
-    whileInView: "visible",
-    viewport: { once: true, amount: 0.5 },
+    animate: "visible",
     variants,
   });
 
-  const imageAnimate: Variants = {
-    hidden: {
-      opacity: 0,
-      y: "100%",
-      transition: {
-        ease: [0.16, 1, 0.3, 1],
-        damping: 12,
-        stiffness: 100,
-        duration: 1,
-      },
-    },
-    visible: {
-      opacity: 1,
-      y: "0%",
-      transition: {
-        ease: [0.16, 1, 0.3, 1],
-        damping: 12,
-        stiffness: 100,
-        duration: 1,
-      },
-    },
-  };
-
   return (
-    <motion.div style={{ overflow: "hidden" }}>
-      <motion.div
-        style={{ backgroundImage: `url(${src})` }}
-        className={className}
-      />
-    </motion.div>
+    <div className={`${styles.container} ${className}`}>
+      <img src={src} alt={alt} />
+      <motion.div className={styles.imageReveal} {...anim(revealAnimate)} />
+    </div>
   );
 };
 

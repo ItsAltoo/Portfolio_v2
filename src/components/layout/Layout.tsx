@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, Variants } from "motion/react";
 import { opacity, expand } from "./anim";
-import styles from "./styles.module.scss";
+import styles from "./style.module.scss";
 import Navbar from "@/components/navbar/Navbar";
 
 export default function Layout({

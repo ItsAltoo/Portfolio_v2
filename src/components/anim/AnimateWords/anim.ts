@@ -12,23 +12,16 @@ export const container: Variants = {
 
 export const child: Variants = {
     hidden: {
-      opacity: 0,
       y: "100%",
-      transition: {
-        ease: [0.16, 1, 0.3, 1],
-        damping: 12,
-        stiffness: 100,
-        duration: 1,
-      },
+
     },
     visible: {
-      opacity: 1,
       y: "0%",
       transition: {
         ease: [0.16, 1, 0.3, 1],
         damping: 12,
         stiffness: 100,
-        duration: 1,
+        duration: 1.5,
       },
     },
   };

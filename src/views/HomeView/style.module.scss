@@ -2,6 +2,14 @@
   display: flex;
   justify-content: space-between;
   margin: 12px;
+  height: 31rem;
+
+  @media screen and (max-width: 768px) {
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
 
   .textContainer {
     display: flex;
@@ -28,7 +36,7 @@
         }
 
         span {
-          font-size: 0.6rem;
+          font-size: 0.7rem;
           color: #414141;
           font-weight: 100;
         }
@@ -42,14 +50,38 @@
     }
   }
 
-  .profileImage {
-    width: 350px;
-    height: 450px;
+  .imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    gap: 1rem;
+
+    @media screen and (max-width: 768px) {
+      .aboutButton {
+        font-size: 15px;
+        font-weight: 200;
+      }
+    }
+
+    .profileImage {
+      width: 350px;
+      height: 450px;
+
+      @media (max-width: 768px) {
+        width: 14rem;
+        height: 20rem;
+      }
+    }
   }
 }
 
 .textAnim {
   font-size: 55px;
+
+  @media (max-width: 48rem) {
+    font-size: 24px;
+  }
 }
 .textProfession {
   display: flex;

@@ -5,11 +5,11 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { AnimatePresence } from "motion/react";
 import { useRouter } from "next/router";
-import { Poppins } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import Lenis from "lenis";
 import { useEffect } from "react";
 
-const poppins = Poppins({
+const open_sans = Open_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -41,7 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content={metadata.description} />
         <link rel="icon" href={metadata.icons.icon} />
       </Head>
-      <div className={poppins.className}>
+      <div className={open_sans.className}>
         <AnimatePresence mode="wait">
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>

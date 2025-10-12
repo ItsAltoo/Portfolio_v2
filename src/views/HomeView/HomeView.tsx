@@ -1,10 +1,11 @@
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 import AnimatedWords from "@/components/anim/AnimateWords/AnimateWords";
 import AnimateImage from "@/components/anim/AnimateImage/AnimateImage";
 import SlideUp from "@/components/anim/SlideUp/SlideUp";
 import Image from "next/image";
 import Button from "@/components/button/Button";
 import { useIsMobile } from "@/lib/services/useIsMobile";
+import Marquee from "react-fast-marquee";
 
 const HomeView = () => {
   const { isMobile } = useIsMobile();
@@ -16,7 +17,7 @@ const HomeView = () => {
           <div>
             <AnimatedWords
               className={styles.textAnim}
-              text="  My name is Malik S.Akbar."
+              text="  My name is Malik S.Akbar"
             />
 
             <div className={styles.textProfession}>
@@ -65,6 +66,12 @@ const HomeView = () => {
           )}
         </div>
 
+        {isMobile && (
+          <Marquee direction="right" speed={30} className={styles.marquee}>
+            <p>Welcome to my website</p>
+          </Marquee>
+        )}
+
         <div className={styles.imageContainer}>
           {isMobile && (
             <Button href="/about" className={styles.aboutButton}>
@@ -72,11 +79,19 @@ const HomeView = () => {
             </Button>
           )}
 
-          <AnimateImage
-            src="./profile.jpg"
-            alt="Logo"
-            className={styles.profileImage}
-          />
+          <div className={styles.imageWrapper}>
+            <AnimateImage
+              src="./profile.jpg"
+              alt="Logo"
+              className={styles.profileImage}
+            />
+
+            {isMobile && (
+              <Marquee direction="right" speed={15} className={styles.imageMarquee}>
+                <p>Welcome to my website</p>
+              </Marquee>
+            )}
+          </div>
         </div>
       </div>
     </>

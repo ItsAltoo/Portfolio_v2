@@ -1,11 +1,11 @@
 import Layout from "@/components/layout/Layout";
+import AboutView from "@/views/AboutView/AboutView";
 import React from "react";
-import { color } from "../projects/utils";
 
 const index = () => {
   return (
     <Layout>
-      <div>About Us</div>
+      <AboutView />
     </Layout>
   );
 };

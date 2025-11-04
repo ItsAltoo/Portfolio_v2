@@ -92,15 +92,12 @@
         top: 100%;
         right: -87%;
 
-
         transform: rotate(90deg);
         transform-origin: top right;
 
         border: 2px solid black;
         border-left: none;
         border-right: none;
-
-       
       }
     }
   }
@@ -117,11 +114,7 @@
     font-size: 20px;
     line-height: 2;
   }
-}
-.textProfession {
-  display: flex;
-
-  .textAnim:nth-child(2) {
+  .subText {
     color: var(--color-primary);
   }
 }

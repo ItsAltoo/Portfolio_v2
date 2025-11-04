@@ -1,11 +1,11 @@
 import styles from "./styles.module.scss";
-import AnimatedWords from "@/components/anim/AnimateWords/AnimateWords";
 import AnimateImage from "@/components/anim/AnimateImage/AnimateImage";
 import SlideUp from "@/components/anim/SlideUp/SlideUp";
 import Image from "next/image";
 import Button from "@/components/button/Button";
 import { useIsMobile } from "@/lib/services/useIsMobile";
 import Marquee from "react-fast-marquee";
+import SplitWord from "@/components/anim/SplitWord/SplitWord";
 
 const HomeView = () => {
   const { isMobile } = useIsMobile();
@@ -15,18 +15,10 @@ const HomeView = () => {
       <div className={styles.container}>
         <div className={styles.textContainer}>
           <div>
-            <AnimatedWords
-              className={styles.textAnim}
-              text="  My name is Malik S.Akbar"
-            />
-
-            <div className={styles.textProfession}>
-              <AnimatedWords className={styles.textAnim} text="I am a" />
-              <AnimatedWords
-                className={styles.textAnim}
-                text="Frontend Developer"
-              />
-            </div>
+            <SplitWord className={styles.textAnim}>
+              My name is Malik Sabarullah Akbar. I am a{" "}
+              <span className={styles.subText}>Frontend Developer</span>
+            </SplitWord>
           </div>
 
           {/* Latest Projects */}
@@ -81,13 +73,17 @@ const HomeView = () => {
 
           <div className={styles.imageWrapper}>
             <AnimateImage
-              src="./profile.jpg"
+              src="./profile1.jpg"
               alt="Logo"
               className={styles.profileImage}
             />
 
             {isMobile && (
-              <Marquee direction="right" speed={15} className={styles.imageMarquee}>
+              <Marquee
+                direction="right"
+                speed={15}
+                className={styles.imageMarquee}
+              >
                 <p>Welcome to my website</p>
               </Marquee>
             )}

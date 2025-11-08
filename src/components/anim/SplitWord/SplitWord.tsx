@@ -26,7 +26,7 @@ const SplitWord = ({ children, className }: SplitWordProps) => {
         duration: 1,
         y: 100,
         ease: "power1.inOut",
-        stagger: 0.05,
+        stagger: 0.008,
       });
     },
     { scope: ref }

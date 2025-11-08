@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  gap: 10rem;
+  margin-top: 4rem;
+
+  .paraf {
+    gap: 50px;
+    max-width: 45rem;
+  }
+}
+
+.profile {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+
+  .image {
+    width: 6.5rem;
+    height: 9.3rem;
+    background-color: gray;
+  }
+}

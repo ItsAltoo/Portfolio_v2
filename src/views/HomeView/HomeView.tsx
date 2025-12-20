@@ -73,7 +73,7 @@ const HomeView = () => {
 
           <div className={styles.imageWrapper}>
             <AnimateImage
-              src="./profile1.jpg"
+              src="/profile/profile1.jpg"
               alt="Logo"
               className={styles.profileImage}
             />

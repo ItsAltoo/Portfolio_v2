@@ -7,6 +7,16 @@
     gap: 50px;
     max-width: 45rem;
   }
+
+  &.mobile {
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    .paraf {
+      font-size: 1.2rem;
+    }
+  }
 }
 
 .profile {
@@ -16,8 +26,19 @@
   grid-template-columns: repeat(2, 1fr);
 
   .image {
-    width: 6.5rem;
-    height: 9.3rem;
+    width: 7.5rem;
+    height: 10.3rem;
     background-color: gray;
+  }
+}
+
+.mobile .profile {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+
+  .image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
   }
 }

@@ -10,13 +10,15 @@ interface SplitWordProps {
 }
 
 const SplitWord = ({ children, className }: SplitWordProps) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
+      if (!ref.current) return;
+
       gsap.registerPlugin(SplitText);
       const teks = new SplitText(ref.current, {
-        type: "words, lines",
+        type: "lines, words",
         wordsClass: "word++",
       });
 
@@ -28,8 +30,12 @@ const SplitWord = ({ children, className }: SplitWordProps) => {
         ease: "power1.inOut",
         stagger: 0.008,
       });
+
+      return () => {
+        teks.revert();
+      };
     },
-    { scope: ref }
+    { scope: ref, dependencies: [children] }
   );
 
   return (

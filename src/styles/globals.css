@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding-inline: 12px;
   -ms-overflow-style: none;
+  scroll-behavior: smooth;
 }
 
 :root {

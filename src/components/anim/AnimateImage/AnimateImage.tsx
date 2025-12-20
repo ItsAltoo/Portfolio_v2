@@ -4,13 +4,13 @@ import styles from "./style.module.scss";
 import { revealAnimate } from "./anim";
 
 interface AnimateImageProps {
+  delay?: number;
   src: string;
   alt: string;
   className?: string;
 }
 
-const AnimateImage = ({ src, alt, className }: AnimateImageProps) => {
-
+const AnimateImage = ({ src, alt, className, delay = 0.4 }: AnimateImageProps) => {
   const anim = (variants: Variants) => ({
     initial: "hidden",
     animate: "visible",
@@ -20,7 +20,10 @@ const AnimateImage = ({ src, alt, className }: AnimateImageProps) => {
   return (
     <div className={`${styles.container} ${className}`}>
       <img src={src} alt={alt} />
-      <motion.div className={styles.imageReveal} {...anim(revealAnimate)} />
+      <motion.div
+        className={styles.imageReveal}
+        {...anim(revealAnimate({ delay }).revealAnimate)}
+      />
     </div>
   );
 };

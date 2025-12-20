@@ -2,24 +2,30 @@ import SplitWord from "@/components/anim/SplitWord/SplitWord";
 import React from "react";
 import styles from "./style.module.scss";
 import AnimateImage from "@/components/anim/AnimateImage/AnimateImage";
+import { useIsMobile } from "@/lib/services/useIsMobile";
 
 const SubHeading = () => {
+  const { isMobile } = useIsMobile();
+
+  const keySubHeading = isMobile ? "mobile" : "desktop";
+
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${isMobile ? styles.mobile : ""}`}>
       <div className={styles.profile}>
         {Array(3)
           .fill(0)
           .map((_, i) => (
             <AnimateImage
               key={i}
-              src={`path/to/image${i}.jpg`}
+              src={`/profile/profile${i + 1}.jpg`}
               alt={`Image ${i}`}
               className={styles.image}
+              delay={1}
             />
           ))}
       </div>
 
-      <div className={styles.paraf}>
+      <div className={styles.paraf} key={keySubHeading}>
         <SplitWord>
           SAYA ADALAH MAHASISWA BERUSIA 19 TAHUN YANG SAAT INI BERKULIAH DI
           UNIVERSITAS MUHAMMADIYAH KALIMANTAN TIMUR. KETIKA SAYA MASUK SMKN 18

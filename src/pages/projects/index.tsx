@@ -1,22 +1,23 @@
 import Layout from "@/components/layout/Layout";
 import Navbar from "@/components/navbar/Navbar";
 import { useIsMobile } from "@/lib/services/useIsMobile";
+import ProjectView from "@/views/ProjectView/ProjectView";
 import React from "react";
 
-const index = () => {
+const Index = () => {
   const { isMobile } = useIsMobile();
   return (
     <>
       <Navbar />
       {!isMobile ? (
         <Layout>
-          <div>Projects</div>
+          <ProjectView />
         </Layout>
       ) : (
-        <div>Projects</div>
+        <ProjectView />
       )}
     </>
   );
 };
 
-export default index;
+export default Index;

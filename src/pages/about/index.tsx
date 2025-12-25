@@ -4,7 +4,7 @@ import { useIsMobile } from "@/lib/services/useIsMobile";
 import AboutView from "@/views/AboutView/AboutView";
 import React from "react";
 
-const index = () => {
+const Index = () => {
   const { isMobile } = useIsMobile();
   return (
     <>
@@ -20,4 +20,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

@@ -3,7 +3,7 @@ import Navbar from "@/components/navbar/Navbar";
 import { useIsMobile } from "@/lib/services/useIsMobile";
 import React from "react";
 
-const index = () => {
+const Index = () => {
   const { isMobile } = useIsMobile();
 
   return (
@@ -20,4 +20,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

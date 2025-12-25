@@ -76,6 +76,8 @@ const HomeView = () => {
               src="/profile/profile1.jpg"
               alt="Logo"
               className={styles.profileImage}
+              width={isMobile ? 150 : 300}
+              height={isMobile ? 150 : 300}
             />
 
             {isMobile && (

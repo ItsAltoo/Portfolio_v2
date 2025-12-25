@@ -7,8 +7,6 @@ import { useIsMobile } from "@/lib/services/useIsMobile";
 const SubHeading = () => {
   const { isMobile } = useIsMobile();
 
-  const keySubHeading = isMobile ? "mobile" : "desktop";
-
   return (
     <div className={`${styles.container} ${isMobile ? styles.mobile : ""}`}>
       <div className={styles.profile}>
@@ -20,13 +18,18 @@ const SubHeading = () => {
               src={`/profile/profile${i + 1}.jpg`}
               alt={`Image ${i}`}
               className={styles.image}
-              delay={1}
+              width={isMobile ? 120 : 200}
+              height={isMobile ? 120 : 200}
+              delay={isMobile ? 1.8 : 1}
             />
           ))}
       </div>
 
-      <div className={styles.paraf} key={keySubHeading}>
-        <SplitWord>
+      <div
+        className={styles.paragContainer}
+        key={isMobile ? "mobile" : "desktop"}
+      >
+        <SplitWord className={styles.paragraph}>
           SAYA ADALAH MAHASISWA BERUSIA 19 TAHUN YANG SAAT INI BERKULIAH DI
           UNIVERSITAS MUHAMMADIYAH KALIMANTAN TIMUR. KETIKA SAYA MASUK SMKN 18
           SAMARINDA, SAYA MENGAMBIL JURUSAN MULTIMEDIA. AWALNYA, SAYA FOKUS PADA
@@ -34,7 +37,7 @@ const SubHeading = () => {
           SESUATU, TERUTAMA WEBSITE, DIBANGUN DARI SISI TEKNIS.
         </SplitWord>
         <br />
-        <SplitWord>
+        <SplitWord className={styles.paragraph}>
           SEBAGAI LULUSAN MULTIMEDIA, SAYA MENYADARI BAHWA SAYA MENIKMATI ASPEK
           KREATIF DAN TEKNIS DARI PEKERJAAN SAYA, DAN SAYA MEMBUAT TRANSISI
           PENUH KE DUNIA KODE. SEJAK SAAT ITU, SAYA MENDEDIKASIKAN WAKTU SAYA

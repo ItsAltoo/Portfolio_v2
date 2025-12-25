@@ -8,11 +8,16 @@ interface ButtonProps {
   children: React.ReactNode;
   href: string;
   className?: string;
+  target?: string;
 }
 
-const Button = ({ children, href, className }: ButtonProps) => {
+const Button = ({ children, href, className, target }: ButtonProps) => {
   return (
-    <Link href={href} className={`${styles.button} ${className}`}>
+    <Link
+      href={href}
+      className={`${styles.button} ${className}`}
+      target={target}
+    >
       <motion.div
         className={styles.inner}
         initial="rest"

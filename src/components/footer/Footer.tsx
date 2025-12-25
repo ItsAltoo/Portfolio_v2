@@ -12,8 +12,8 @@ const Footer = () => {
     <div className={`${styles.container} ${isMobile ? styles.mobile : ""}`}>
       <div className={styles.leftContainer}>
         <p className={styles.quote}>
-          "The only thing that matters is whether you've done something for the
-          world." - Gojo Satoru
+          &quot;The only thing that matters is whether you&apos;ve done something for the
+          world.&quot; - Gojo Satoru
         </p>
         {!isMobile && (
           <Image
@@ -31,7 +31,7 @@ const Footer = () => {
           <span className={styles.label}>Sitemap</span>
           <div className={styles.links}>
             {sitemap.map(({ name, url }) => (
-              <Link key={name} href={url} className={styles.sitemapLink}>
+              <Link key={name} href={url} className={styles.sitemapLink} >
                 {name}
               </Link>
             ))}
@@ -40,10 +40,10 @@ const Footer = () => {
 
         {/* connect */}
         <div className={styles.sitemap}>
-          <span className={styles.label}>Let's connect</span>
+          <span className={styles.label}>Let&apos;s connect</span>
           <div className={styles.links}>
             {mediaLinks.map(({ name, url }) => (
-              <Link key={name} href={url} className={styles.sitemapLink}>
+              <Link key={name} href={url} className={styles.sitemapLink} target="_blank">
                 {name}
               </Link>
             ))}

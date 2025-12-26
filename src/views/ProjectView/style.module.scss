@@ -1,5 +1,31 @@
-.label{
-  font-weight: 100;
-  color: #414141;
-  font-size: 0.9rem;
+.containerHeader {
+  width: 100%;
+
+  font-size: 3rem;
+  padding: 2rem;
+
+  .title {
+    text-align: start;
+    font-weight: 300;
+  }
+
+  .subtitle {
+    text-align: end;
+    font-weight: 300;
+  }
+
+  &.mobile {
+    font-size: 0.8rem;
+    padding: 1rem;
+
+    .title {
+      text-align: left;
+      font-weight: 400;
+    }
+
+    .subtitle {
+      text-align: right;
+      font-weight: 300;
+    }
+  }
 }

@@ -24,6 +24,7 @@ export const metadata = {
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
+
   useEffect(() => {
     const lenis = new Lenis();
 
@@ -36,6 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
+    
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />

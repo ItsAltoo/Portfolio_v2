@@ -15,6 +15,7 @@ import { useContactForm } from "@/lib/services/useContactForm";
 import { Send } from "@mui/icons-material";
 import SplitWord from "@/components/anim/SplitWord/SplitWord";
 import { mediaLinks } from "@/lib/data/contact";
+import { Slide } from "@/components/anim/Slide/Slide";
 
 export default function ContactForm() {
   const {
@@ -29,7 +30,10 @@ export default function ContactForm() {
   return (
     <>
       <Container maxWidth="lg" sx={{ display: "flex", gap: 4, mt: 5 }}>
-        <Paper elevation={2} sx={{ p: 3, mb: 2, width: "50%" }}>
+        <Paper
+          elevation={2}
+          sx={{ p: 3, mb: 2, width: "50%", overflowX: "hidden" }}
+        >
           <SplitWord>
             <Typography
               variant="h4"
@@ -52,14 +56,16 @@ export default function ContactForm() {
             </Typography>
           </SplitWord>
 
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            align="justify"
-            sx={{ mt: 2 }}
-          >
-            Let's connect
-          </Typography>
+          <Slide direction="right">
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              align="justify"
+              sx={{ mt: 2 }}
+            >
+              Let's connect
+            </Typography>
+          </Slide>
 
           <Grid sx={{ mt: 1 }}>
             {mediaLinks.map((link, index) => (
@@ -75,54 +81,56 @@ export default function ContactForm() {
           </Grid>
         </Paper>
 
-        <Box component="form" onSubmit={handleSubmit} noValidate>
-          <TextField
-            fullWidth
-            label="Nama Lengkap"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            margin="normal"
-            required
-            variant="standard"
-          />
+        <Slide direction="left">
+          <Box component="form" onSubmit={handleSubmit} noValidate>
+            <TextField
+              fullWidth
+              label="Nama Lengkap"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              margin="normal"
+              required
+              variant="standard"
+            />
 
-          <TextField
-            fullWidth
-            label="Alamat Email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            margin="normal"
-            required
-            variant="standard"
-          />
+            <TextField
+              fullWidth
+              label="Alamat Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              margin="normal"
+              required
+              variant="standard"
+            />
 
-          <TextField
-            fullWidth
-            label="Pesan Anda"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            margin="normal"
-            required
-            multiline
-            rows={4}
-            variant="standard"
-          />
+            <TextField
+              fullWidth
+              label="Pesan Anda"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              margin="normal"
+              required
+              multiline
+              rows={4}
+              variant="standard"
+            />
 
-          <Button
-            type="submit"
-            variant="text"
-            size="small"
-            endIcon={<Send />}
-            disabled={loading}
-            sx={{ mt: 3, mb: 1, py: 1.5, color: "#414141" }}
-          >
-            {loading ? "Sedang Mengirim..." : "Kirim Pesan"}
-          </Button>
-        </Box>
+            <Button
+              type="submit"
+              variant="text"
+              size="small"
+              endIcon={<Send />}
+              disabled={loading}
+              sx={{ mt: 3, mb: 1, py: 1.5, color: "#414141" }}
+            >
+              {loading ? "Sedang Mengirim..." : "Kirim Pesan"}
+            </Button>
+          </Box>
+        </Slide>
       </Container>
       {/* Komponen Notifikasi Pop-up */}
       <Snackbar

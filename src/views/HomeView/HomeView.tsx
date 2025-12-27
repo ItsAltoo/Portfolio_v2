@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import AnimateImage from "@/components/anim/AnimateImage/AnimateImage";
-import SlideUp from "@/components/anim/SlideUp/SlideUp";
+import {Slide} from "@/components/anim/Slide/Slide";
 import Image from "next/image";
 import Button from "@/components/button/Button";
 import { useIsMobile } from "@/lib/services/useIsMobile";
@@ -24,11 +24,11 @@ const HomeView = () => {
           {/* Latest Projects */}
           {!isMobile && (
             <div>
-              <SlideUp>
+              <Slide direction="up">
                 <p>Latest Projects</p>
-              </SlideUp>
+              </Slide>
 
-              <SlideUp>
+              <Slide direction="up">
                 <div className={styles.projectsCard}>
                   <Image
                     src="./projects/website/project_4.png"
@@ -53,7 +53,7 @@ const HomeView = () => {
                     </Button>
                   </div>
                 </div>
-              </SlideUp>
+              </Slide>
             </div>
           )}
         </div>

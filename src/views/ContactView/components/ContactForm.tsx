@@ -105,7 +105,7 @@ export default function ContactForm() {
                 fontWeight: "bold",
               }}
             >
-              Let's connect
+              Let&apos;s connect
             </Typography>
           </SplitWord>
 

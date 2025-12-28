@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { Open_Sans } from "next/font/google";
 import Lenis from "lenis";
 import { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 const open_sans = Open_Sans({
   subsets: ["latin"],
@@ -37,7 +38,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-    
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
@@ -48,6 +48,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>
       </div>
+      <Analytics />
     </>
   );
 }

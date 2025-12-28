@@ -10,12 +10,16 @@ import {
   Paper,
   Grid,
   IconButton,
+  ThemeProvider,
+  createTheme,
 } from "@mui/material";
 import { useContactForm } from "@/lib/services/useContactForm";
 import { Send } from "@mui/icons-material";
 import SplitWord from "@/components/anim/SplitWord/SplitWord";
 import { mediaLinks } from "@/lib/data/contact";
 import { Slide } from "@/components/anim/Slide/Slide";
+import { useIsMobile } from "@/lib/services/useIsMobile";
+import { FadeIn } from "@/components/anim/FadeIn/FadeIn";
 
 export default function ContactForm() {
   const {
@@ -27,28 +31,62 @@ export default function ContactForm() {
     handleCloseSnackbar,
   } = useContactForm();
 
+  const { isMobile } = useIsMobile();
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#08CB00",
+      },
+    },
+  });
+
   return (
-    <>
-      <Container maxWidth="lg" sx={{ display: "flex", gap: 4, mt: 5 }}>
+    <ThemeProvider theme={theme}>
+      <Container
+        maxWidth="xl"
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          gap: { xs: 6, md: 8 },
+        }}
+      >
         <Paper
-          elevation={2}
-          sx={{ p: 3, mb: 2, width: "50%", overflowX: "hidden" }}
+          elevation={isMobile ? 0 : 2}
+          sx={{
+            p: { xs: 0, md: 3 },
+            backgroundColor: { xs: "transparent", md: "background.paper" },
+            width: { xs: "100%", md: "50%" },
+            overflowX: "hidden",
+          }}
         >
           <SplitWord>
             <Typography
               variant="h4"
               component="h2"
-              align="justify"
+              align="left"
               gutterBottom
-              fontWeight={500}
-              sx={{ mt: 3 }}
+              fontWeight={600}
+              sx={{
+                mt: 3,
+                fontSize: { xs: "1.5rem", sm: "2rem", md: "2.25rem" },
+                lineHeight: { xs: 1.2, md: 1.5 },
+              }}
             >
               Hubungi Saya
             </Typography>
           </SplitWord>
 
           <SplitWord>
-            <Typography variant="body2" color="textSecondary" align="justify">
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              align="justify"
+              sx={{
+                fontSize: { xs: "0.875rem", md: "1rem" },
+                lineHeight: { xs: 1.5, md: 1.7 },
+              }}
+            >
               Saya berkomitmen untuk menjaga privasi Anda. Informasi yang Anda
               berikan melalui formulir ini hanya akan digunakan untuk tujuan
               menanggapi pesan Anda dan tidak akan dibagikan dengan pihak ketiga
@@ -56,31 +94,38 @@ export default function ContactForm() {
             </Typography>
           </SplitWord>
 
-          <Slide direction="right">
+          <SplitWord>
             <Typography
               variant="body2"
               color="textSecondary"
               align="justify"
-              sx={{ mt: 2 }}
+              sx={{
+                mt: 2,
+                fontSize: { xs: "0.9rem", md: "1rem" },
+                fontWeight: "bold",
+              }}
             >
               Let's connect
             </Typography>
-          </Slide>
+          </SplitWord>
 
-          <Grid sx={{ mt: 1 }}>
+          <Grid sx={{ mt: 1, display: "flex" }}>
             {mediaLinks.map((link, index) => (
-              <IconButton
-                key={index}
-                aria-label={link.ariaLabel}
-                href={link.url}
-                target="_blank"
-              >
-                {link.icon}
-              </IconButton>
+              <FadeIn delay={(index + 1) * 0.3} key={index}>
+                <IconButton
+                  aria-label={link.ariaLabel}
+                  href={link.url}
+                  target="_blank"
+                  sx={{ ":hover": { color: "#08CB00" } }}
+                >
+                  {link.icon}
+                </IconButton>
+              </FadeIn>
             ))}
           </Grid>
         </Paper>
 
+        {/* BAGIAN FORM (KANAN) */}
         <Slide direction="left">
           <Box component="form" onSubmit={handleSubmit} noValidate>
             <TextField
@@ -91,7 +136,7 @@ export default function ContactForm() {
               onChange={handleChange}
               margin="normal"
               required
-              variant="standard"
+              variant="outlined"
             />
 
             <TextField
@@ -103,7 +148,7 @@ export default function ContactForm() {
               onChange={handleChange}
               margin="normal"
               required
-              variant="standard"
+              variant="outlined"
             />
 
             <TextField
@@ -116,7 +161,7 @@ export default function ContactForm() {
               required
               multiline
               rows={4}
-              variant="standard"
+              variant="outlined"
             />
 
             <Button
@@ -125,13 +170,20 @@ export default function ContactForm() {
               size="small"
               endIcon={<Send />}
               disabled={loading}
-              sx={{ mt: 3, mb: 1, py: 1.5, color: "#414141" }}
+              sx={{
+                mt: 3,
+                mb: 1,
+                py: 1.5,
+                color: "#414141",
+                ":hover": { color: "#08CB00" },
+              }}
             >
               {loading ? "Sedang Mengirim..." : "Kirim Pesan"}
             </Button>
           </Box>
         </Slide>
       </Container>
+
       {/* Komponen Notifikasi Pop-up */}
       <Snackbar
         open={snackbar.open}
@@ -147,6 +199,6 @@ export default function ContactForm() {
           {snackbar.message}
         </Alert>
       </Snackbar>
-    </>
+    </ThemeProvider>
   );
 }

@@ -6,7 +6,6 @@ import React from "react";
 
 const Index = () => {
   const { isMobile } = useIsMobile();
-
   return (
     <>
       <Navbar />

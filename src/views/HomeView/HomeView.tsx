@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import AnimateImage from "@/components/anim/AnimateImage/AnimateImage";
-import {Slide} from "@/components/anim/Slide/Slide";
+import { Slide } from "@/components/anim/Slide/Slide";
 import Image from "next/image";
 import Button from "@/components/button/Button";
 import { useIsMobile } from "@/lib/services/useIsMobile";

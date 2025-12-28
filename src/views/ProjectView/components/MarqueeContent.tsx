@@ -13,7 +13,7 @@ export const MarqueeContent = () => {
     <>
       <Marquee pauseOnClick direction="right" speed={isMobile ? 50 : 70}>
         {cardDatas.website_datas.map((items, i) => (
-          <FadeIn key={i} delay={i * 0.2}>
+          <FadeIn key={i} delay={(i + 1) * 0.2}>
             <Card
               images={items.images}
               projectUrl={items.projectUrl}

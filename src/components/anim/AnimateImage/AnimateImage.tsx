@@ -13,7 +13,14 @@ interface AnimateImageProps {
   height?: number;
 }
 
-const AnimateImage = ({ src, alt, className, delay = 0.4, width, height }: AnimateImageProps) => {
+const AnimateImage = ({
+  src,
+  alt,
+  className,
+  delay = 0.4,
+  width,
+  height,
+}: AnimateImageProps) => {
   const anim = (variants: Variants) => ({
     initial: "hidden",
     animate: "visible",
@@ -22,7 +29,7 @@ const AnimateImage = ({ src, alt, className, delay = 0.4, width, height }: Anima
 
   return (
     <div className={`${styles.container} ${className}`}>
-      <Image src={src} alt={alt} width={width} height={height} />
+      <Image src={src} alt={alt} width={width} height={height} unoptimized />
       <motion.div
         className={styles.imageReveal}
         {...anim(revealAnimate({ delay }).revealAnimate)}

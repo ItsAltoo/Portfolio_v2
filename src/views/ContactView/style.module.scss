@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  height: calc(100vh - 4rem);
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+
+  padding: 1rem;
+
+  &.mobile {
+    padding: 0.5rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .mascot {
+    position: absolute;
+    bottom: 10;
+    right: 0;
+
+
+    &.mobile {
+      display: none;
+    }
+  }
+}

@@ -3,6 +3,7 @@
 
   font-size: 3rem;
   padding: 2rem;
+  position: relative;
 
   .title {
     text-align: start;
@@ -12,6 +13,13 @@
   .subtitle {
     text-align: end;
     font-weight: 300;
+    margin-bottom: 7rem;
+  }
+
+  .mascot {
+    position: absolute;
+    bottom: 10;
+    right: 0;
   }
 
   &.mobile {
@@ -26,6 +34,11 @@
     .subtitle {
       text-align: right;
       font-weight: 300;
+      margin-bottom: 0;
+    }
+
+    .mascot {
+      display: none;
     }
   }
 }

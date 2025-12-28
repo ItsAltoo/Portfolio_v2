@@ -12,7 +12,7 @@ export const cardDatas: datasType = {
       title: "First Portfolio",
       subTitle: "Vite, ShadcnUI, 2025",
       images: "/projects/website/project_1.png",
-      projectUrl: "https://itsmalik.tech",
+      projectUrl: "https://itsmalik-v-1.vercel.app/",
     },
     {
       title: "Archa-Log",

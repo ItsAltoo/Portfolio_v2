@@ -17,7 +17,7 @@ const Footer = () => {
         </p>
         {!isMobile && (
           <Image
-            src={"/gojo.jpeg"}
+            src={"/Gojo.jpeg"}
             alt="Gojo Satoru"
             width={100}
             height={100}

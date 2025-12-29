@@ -15,8 +15,8 @@ export const MarqueeContent = () => {
         {cardDatas.website_datas.map((items, i) => (
           <FadeIn key={i} delay={(i + 1) * 0.2}>
             <Card
-              images={items.images}
-              projectUrl={items.projectUrl}
+              src={items.src}
+              href={items.href}
               subTitle={items.subTitle}
               title={items.title}
               imageWidth={isMobile ? 100 : 200}
@@ -34,8 +34,8 @@ export const MarqueeContent = () => {
           <FadeIn key={i} delay={i * 0.2}>
             <Card
               key={i}
-              images={items.images}
-              projectUrl={items.projectUrl}
+              src={items.src}
+              href={items.href}
               subTitle={items.subTitle}
               title={items.title}
               imageWidth={isMobile ? 150 : 300}

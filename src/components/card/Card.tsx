@@ -6,10 +6,10 @@ import Button from "../button/Button";
 import { cardProps } from "@/lib/types/card";
 
 const Card = ({
-  images = "/Gojo.jpeg",
+  src = "/Gojo.jpeg",
   title = "Title",
   subTitle = "subTitle",
-  projectUrl = "https://altnime.itsmalik.tech",
+  href = "https://altnime.itsmalik.tech",
   classname,
   imageHeight,
   imageWidth,
@@ -24,7 +24,7 @@ const Card = ({
       }`}
     >
       <Image
-        src={images}
+        src={src}
         width={imageWidth}
         height={imageHeight}
         alt={title}
@@ -33,7 +33,7 @@ const Card = ({
       />
       <span className={styles.subTitle}>{subTitle}</span>
       <p className={styles.title}>{title}</p>
-      <Button href={projectUrl} target={linkTarget} className={styles.visitButton}>
+      <Button href={href} target={linkTarget} className={styles.visitButton}>
         VISIT
       </Button>
     </div>

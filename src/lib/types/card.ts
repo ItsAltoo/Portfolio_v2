@@ -1,8 +1,8 @@
 export interface cardProps {
-  images: string;
+  src: string;
   title: string;
   subTitle: string;
-  projectUrl: string;
+  href: string;
   classname?: string;
   imageWidth?: number;
   imageHeight?: number;

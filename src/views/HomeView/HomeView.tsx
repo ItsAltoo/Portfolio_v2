@@ -31,7 +31,7 @@ const HomeView = () => {
               <Slide direction="up">
                 <div className={styles.projectsCard}>
                   <Image
-                    src="./projects/website/project_4.png"
+                    src="./projects/website/project_4.webp"
                     alt="Project Latest"
                     width={250}
                     height={150}

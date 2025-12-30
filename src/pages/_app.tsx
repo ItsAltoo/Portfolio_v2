@@ -19,7 +19,7 @@ export const metadata = {
   title: "itsMalik",
   description: "My personal website",
   icons: {
-    icon: "logo.jpeg",
+    icon: "logo.webp",
   },
 };
 

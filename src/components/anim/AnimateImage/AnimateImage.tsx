@@ -29,7 +29,7 @@ const AnimateImage = ({
 
   return (
     <div className={`${styles.container} ${className}`}>
-      <Image src={src} alt={alt} width={width} height={height} unoptimized />
+      <Image src={src} alt={alt} width={width} height={height} unoptimized loading="lazy"/>
       <motion.div
         className={styles.imageReveal}
         {...anim(revealAnimate({ delay }).revealAnimate)}

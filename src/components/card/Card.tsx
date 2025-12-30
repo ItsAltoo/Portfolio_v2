@@ -6,7 +6,7 @@ import Button from "../button/Button";
 import { cardProps } from "@/lib/types/card";
 
 const Card = ({
-  src = "/Gojo.jpeg",
+  src = "/Gojo.webp",
   title = "Title",
   subTitle = "subTitle",
   href = "https://altnime.itsmalik.tech",
@@ -30,6 +30,7 @@ const Card = ({
         alt={title}
         className={styles.image}
         unoptimized
+        loading="lazy"
       />
       <span className={styles.subTitle}>{subTitle}</span>
       <p className={styles.title}>{title}</p>

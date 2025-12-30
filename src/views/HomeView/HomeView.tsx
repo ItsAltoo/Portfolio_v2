@@ -73,7 +73,7 @@ const HomeView = () => {
 
           <div className={styles.imageWrapper}>
             <AnimateImage
-              src="/profile/profile1.jpg"
+              src="/profile/profile1.webp"
               alt="Logo"
               className={styles.profileImage}
               width={isMobile ? 150 : 300}

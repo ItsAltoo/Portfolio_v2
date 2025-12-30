@@ -15,7 +15,7 @@ const SubHeading = () => {
           .map((_, i) => (
             <AnimateImage
               key={i}
-              src={`/profile/profile${i + 1}.jpg`}
+              src={`/profile/profile${i + 1}.webp`}
               alt={`Image ${i}`}
               className={styles.image}
               width={isMobile ? 120 : 200}

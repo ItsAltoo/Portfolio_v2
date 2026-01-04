@@ -6,6 +6,7 @@ import Button from "@/components/button/Button";
 import { useIsMobile } from "@/lib/services/useIsMobile";
 import Marquee from "react-fast-marquee";
 import SplitWord from "@/components/anim/SplitWord/SplitWord";
+import { cardDatas } from "@/lib/data/cards";
 
 const HomeView = () => {
   const { isMobile } = useIsMobile();
@@ -31,12 +32,12 @@ const HomeView = () => {
               <Slide direction="up">
                 <div className={styles.projectsCard}>
                   <Image
-                    src="./projects/website/project_4.webp"
-                    alt="Project Latest"
-                    width={250}
+                    src={cardDatas.website_datas[4].src}
+                    alt={cardDatas.website_datas[4].title}
+                    width={290}
                     height={150}
                     style={{
-                      objectFit: "cover",
+                      objectFit: "fill",
                       objectPosition: "center",
                     }}
                     unoptimized
@@ -44,8 +45,8 @@ const HomeView = () => {
 
                   <div className={styles.projectsInfo}>
                     <div>
-                      <span>Next.js, Shadcn UI, Jikan API, 2025</span>
-                      <p>ALTNIME LIST</p>
+                      <span>{cardDatas.website_datas[4].subTitle}</span>
+                      <p>{cardDatas.website_datas[4].title}</p>
                     </div>
 
                     <Button href="/projects" className={styles.visitButton}>

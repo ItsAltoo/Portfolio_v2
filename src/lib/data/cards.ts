@@ -32,6 +32,12 @@ export const cardDatas: datasType = {
       src: "/projects/website/project_4.webp",
       href: "https://altnime.itsmalik.tech/",
     },
+    {
+      title: "Waroeng Daeng Ewako",
+      subTitle: "WordPress, Elementor, 2025",
+      src: "/projects/website/project_5.webp",
+      href: "https://waroengdaengewako.my.id/",
+    }
   ],
   // poster
   poster_datas: [

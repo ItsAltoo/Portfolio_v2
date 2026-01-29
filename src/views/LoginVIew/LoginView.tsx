@@ -1,64 +1,27 @@
+import { useLogin } from "@/lib/hooks/useLogin";
 import { Send } from "@mui/icons-material";
 import {
   Alert,
   Button,
   Container,
-  createTheme,
   Paper,
+  Snackbar,
   TextField,
   ThemeProvider,
   Typography,
 } from "@mui/material";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
 
 const LoginView = () => {
-  const [auth, setAuth] = useState({
-    email: "",
-    password: "",
-  });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const router = useRouter();
-
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: "#08CB00",
-      },
-    },
-  });
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-
-    if (!auth.email || !auth.password) {
-      setLoading(false);
-      return;
-    }
-
-    const res = await signIn("credentials", {
-      email: auth.email,
-      password: auth.password,
-      redirect: false,
-    });
-
-    setLoading(false);
-
-    if (res?.ok) {
-      console.log("Login successful");
-      if (window.history.length > 1) {
-        router.back();
-      } else {
-        router.push("/");
-      }
-    } else {
-      console.log("Invalid email or password");
-    }
-  };
+  const {
+    theme,
+    error,
+    loading,
+    handleCloseSnackbar,
+    handleSubmit,
+    setAuth,
+    auth,
+    snackbar,
+  } = useLogin();
 
   return (
     <ThemeProvider theme={theme}>
@@ -141,6 +104,21 @@ const LoginView = () => {
           </Typography>
         </Paper>
       </Container>
+
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      >
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity={snackbar.severity}
+          sx={{ width: "100%" }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </ThemeProvider>
   );
 };

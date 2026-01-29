@@ -1,42 +1,11 @@
-import { useRouter } from "next/router";
-import React from "react";
+import { Button } from "@mui/material";
+import { signOut } from "next-auth/react";
 
-interface DashboardViewProps {
-  user: {
-    id: string;
-    email: string;
-  };
-}
-
-const DashboardView = ({ user }: DashboardViewProps) => {
-  const router = useRouter();
-
-  const handleLogout = async () => {
-    try {
-      await fetch("/api/logout", { method: "POST" });
-      router.push("/login");
-    } catch (error) {
-      console.error("Logout error:", error);
-    }
-  };
-
+const DashboardView = () => {
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Dashboard</h1>
-      <p>Selamat datang, {user.email}!</p>
-      <button
-        onClick={handleLogout}
-        style={{
-          padding: "10px 20px",
-          backgroundColor: "#08CB00",
-          color: "white",
-          border: "none",
-          borderRadius: "4px",
-          cursor: "pointer",
-        }}
-      >
-        Logout
-      </button>
+    <div>
+      data
+      <Button onClick={() => signOut()}>SignOut</Button>
     </div>
   );
 };

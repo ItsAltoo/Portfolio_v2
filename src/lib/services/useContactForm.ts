@@ -18,7 +18,7 @@ export const useContactForm = () => {
     message: string;
   }>({
     open: false,
-    severity: "success", // default
+    severity: "success",
     message: "",
   });
 

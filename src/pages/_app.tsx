@@ -9,6 +9,7 @@ import { Open_Sans } from "next/font/google";
 import Lenis from "lenis";
 import { useEffect } from "react";
 import { Analytics } from "@vercel/analytics/next";
+import NextAuthProvider from "@/lib/providers/SessionProvider";
 
 const open_sans = Open_Sans({
   subsets: ["latin"],
@@ -45,7 +46,9 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <div className={open_sans.className}>
         <AnimatePresence mode="wait">
-          <Component {...pageProps} key={router.route} />
+          <NextAuthProvider>
+            <Component {...pageProps} key={router.route} />
+          </NextAuthProvider>
         </AnimatePresence>
       </div>
       <Analytics />
